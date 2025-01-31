@@ -6,14 +6,35 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="/styles/style.css">
     </head>
     <body>
-        <form title="Certificate Information">
-            <legend>Design your certificate!</legend>
+        <form title="Certificate Information" id="certificate-creator" class="non-print">
+            <legend class="">Design your certificate!</legend>
             <input type="text" id="recipient" placeholder="Recipient">
             <input type="text" id="issuer" placeholder="Your Name">
+            <select name="Style" id="styles">
+                <option value="basic">Basic: Always on their phone</option>
+                <option value="professional">Professional: Being the funniest person ever!</option>
+                <option value="programming">Programming: Never comments their code.</option>
+                <option value="custom">Custom</option>
+            </select>
+            <div id="custom-options">
+                <legend>Custom Options</legend>
+                <input type="file" id="custom-background">
+                <input type="text" id="title" placeholder="Mastery">
+            </div>
+            <button type="button" onclick='buildCustomCertificate()'>Create Certificate</button>
         </form>
-        <script src="" async defer></script>
+        <h2 class="non-print">Your final certificate! (Right click on it to print it out.)</h2>
+        <div id="output-certificate">
+            <div class="spacer"></div>
+            <h3 id="receiver_out" class="output">--name--</h3>
+            <div class="non">
+                <h3 id="date_out" class="output">--date--</h3>
+                <h3 id="issuer_out" class="output">--signature--</h3>
+            </div>
+        </div>
+        <script src="/scripts/index.js" async defer></script>
     </body>
 </html>
