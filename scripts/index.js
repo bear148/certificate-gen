@@ -19,12 +19,10 @@ class Certificate {
     }
 
     build(image = null) {
-        console.log(image);
-
         if(!image) {
             output_div.style.backgroundImage = this.theme;
         } else {
-            output_div.style.backgroundImage = image;
+            output_div.style.backgroundImage = `url(${image})`;
         }
 
         console.log(`${this.theme} - ${this.date} | r: ${this.recipient} s: ${this.sender}`);
