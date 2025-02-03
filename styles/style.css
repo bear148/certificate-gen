@@ -59,11 +59,23 @@ body {
     height: 12%;
 }
 
+#award-title {
+    margin-bottom: 0;
+}
+
+.display {
+    display: block;
+}
+
+.dont-display {
+    display: none;
+}
+
 @media print {
     * {
-        -webkit-print-color-adjust: exact !important;   /* Chrome, Safari 6 – 15.3, Edge */
-        color-adjust: exact !important;                 /* Firefox 48 – 96 */
-        print-color-adjust: exact !important;           /* Firefox 97+, Safari 15.4+ */
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
     }
 
     .non-print {

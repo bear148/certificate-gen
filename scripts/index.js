@@ -1,7 +1,7 @@
 const output_div = document.getElementById("output-certificate");
 const output_elements = document.getElementsByClassName("output");
 const styles = document.getElementById("styles");
-const customOptions = document.getElementById("custom-options")
+const customOptions = document.getElementById("custom-options");
 let light_theme = false;
 
 styles.addEventListener("change", () => {
@@ -11,21 +11,26 @@ styles.addEventListener("change", () => {
 })
 
 class Certificate {
-    constructor(theme, recipient, sender, date) {
+    constructor(theme, recipient, sender, date, title=null) {
         this.theme = theme;
         this.recipient = recipient;
         this.sender = sender;
         this.date = date;
+        this.title = title;
     }
 
     build(image = null) {
         if(!image) {
             output_div.style.backgroundImage = this.theme;
         } else {
-            output_div.style.backgroundImage = `url(${image})`;
+            let fr = new FileReader();
+            fr.readAsDataURL(image);
+            fr.onload = function() {
+                output_div.style.backgroundImage = `url(${fr.result})`;
+            }
         }
 
-        console.log(`${this.theme} - ${this.date} | r: ${this.recipient} s: ${this.sender}`);
+        console.log(`${this.theme} - ${this.date} | r: ${this.recipient} s: ${this.sender} | t: ${this.title}`);
 
         if (light_theme) {
             for (let e of output_elements) {
@@ -37,9 +42,10 @@ class Certificate {
             }
         }
 
-        output_elements[0].innerText = this.recipient;
-        output_elements[1].innerText = this.date;
-        output_elements[2].innerText = this.sender;
+        output_elements[0].innerText = this.title;
+        output_elements[1].innerText = this.recipient;
+        output_elements[2].innerText = this.date;
+        output_elements[3].innerText = this.sender;
     }
 }
 
@@ -66,7 +72,7 @@ function buildCustomCertificate() {
     let issuer = document.getElementById("issuer").value;
     let date = new Date();
     let out_date = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
-    let certificate = new Certificate(handleStyleBackground(styles.value), recipient, issuer, out_date);
+    let certificate = new Certificate(handleStyleBackground(styles.value), recipient, issuer, out_date, document.getElementById("title").value);
 
     if (recipient == "" || issuer == "") {
         return;
