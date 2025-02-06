@@ -10,7 +10,7 @@ body {
 
 #certificate-creator {
     background-color: beige;
-    max-width: 400px;
+    max-width: 300px;
     margin-bottom: 55px;
     padding: 25px;
 }
@@ -74,7 +74,6 @@ body {
 @media print {
     * {
         -webkit-print-color-adjust: exact !important;
-        color-adjust: exact !important;
         print-color-adjust: exact !important;
     }
 

@@ -4,10 +4,23 @@ const styles = document.getElementById("styles");
 const customOptions = document.getElementById("custom-options");
 let light_theme = false;
 
+function clearCustomOptions() {
+    customOptions.style.display = 'none';
+    output_elements[0].innerText = "";
+    document.getElementById("title").value = "";
+    output_div.style.backgroundImage = ``;
+}
+
 styles.addEventListener("change", () => {
+    for (let e of output_elements) {
+        e.style.color = "#FFFFFF";
+    }
+
     if (styles.value == "custom") {
         customOptions.style.display = 'block';
+        return;
     }
+    clearCustomOptions();
 })
 
 class Certificate {
