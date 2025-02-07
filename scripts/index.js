@@ -4,11 +4,16 @@ const styles = document.getElementById("styles");
 const customOptions = document.getElementById("custom-options");
 let light_theme = false;
 
-function clearCustomOptions() {
+function clear() {
     customOptions.style.display = 'none';
     output_elements[0].innerText = "";
     document.getElementById("title").value = "";
     output_div.style.backgroundImage = ``;
+
+    output_elements[0].innerText = "";
+    output_elements[1].innerText = "";
+    output_elements[2].innerText = "";
+    output_elements[3].innerText = "";
 }
 
 styles.addEventListener("change", () => {
@@ -20,7 +25,7 @@ styles.addEventListener("change", () => {
         customOptions.style.display = 'block';
         return;
     }
-    clearCustomOptions();
+    clear();
 })
 
 class Certificate {
