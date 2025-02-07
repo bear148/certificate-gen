@@ -102,6 +102,7 @@ body {
         height: 100vh;
     }
 
+    #certificate-creator,
     .non-print {
         display: none;
     }
