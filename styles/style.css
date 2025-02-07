@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +8,24 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow-x: hidden;
+    background-color: white;
 }
 
 #certificate-creator {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     background-color: beige;
-    max-width: 300px;
     margin-bottom: 55px;
     padding: 25px;
+}
+
+#certificate-creator {
+    font-weight: bold;
+}
+
+#certificate-creator *, #certificate-creator *::placeholder{
+    font-size: 22px;
 }
 
 #output-certificate {
@@ -27,6 +40,10 @@ body {
 
 #output-certificate * {
     font-weight: 400;
+}
+
+#output-certificate h3 {
+    font-family: "Playfair Display", serif;
 }
 
 #output-certificate > h3 {
@@ -75,6 +92,14 @@ body {
     * {
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
     }
 
     .non-print {

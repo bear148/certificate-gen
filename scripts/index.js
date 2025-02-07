@@ -98,6 +98,7 @@ function buildCustomCertificate() {
 
     if (document.getElementById("custom-background").files[0]) {
         certificate.build(document.getElementById("custom-background").files[0]);
+        document.getElementById("custom-background").value = null;
         return;
     }
 
